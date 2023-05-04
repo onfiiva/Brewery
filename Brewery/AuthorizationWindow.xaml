@@ -1,0 +1,35 @@
+﻿<Window x:Class="Brewery.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Brewery"
+        mc:Ignorable="d" Loaded="Window_Loaded" Closed="Window_Closed"
+        Title="Brewery Authorization"  Height="400" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Authorization" FontSize="16pt" FontFamily="Consolas" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock Text="Login" FontSize="14pt" FontFamily="Consolas" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" Margin="40,0,0,0" Grid.Row="2"/>
+        <TextBox Name="tbxLogin" Text="+7(911)911-91-91" Opacity="0.8" Grid.Row="3" Width="220" Height="25"/>
+        <TextBlock Text="Password" FontSize="14pt" FontFamily="Consolas" VerticalAlignment="Bottom" Width="100" HorizontalAlignment="Left" Margin="40,0,0,0" Grid.Row="4"/>
+        <TextBox Name="tbxPassword" Text="string" Opacity="0.8" Grid.Row="5" Width="220" Height="25"/>
+        <Button x:Name="btAuth" Opacity="0.8" Grid.Row="6" Content="Auth" Width="100" Height="30" VerticalAlignment="Center" Background="White" Click="btAuth_Click" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <CheckBox Name="Regist" Grid.Row="6" Margin="20, 0, 70, 0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <TextBlock Name="tbError" Text="" Grid.Row="8" TextWrapping="Wrap" Width="300" TextAlignment="Center"/>
+    </Grid>
+</Window>

@@ -1,0 +1,493 @@
+﻿<Window x:Class="Brewery.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Brewery" xmlns:ScottPlot="clr-namespace:ScottPlot;assembly=ScottPlot.WPF"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="1080" Width="1920" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl x:Name="tabControl">
+            <TabItem Name="AdminList" Header="Информация об админе" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchAdminList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgAdminList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <Button Name="btExitAdminList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Click="btExitAdminList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BreweryList" Header="Информация о пивоварне" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchBreweryList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBreweryList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Name="btExitBreweryList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="btExitBreweryList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="SuppliersList" Header="Информация о поставщиках" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchSuppliersList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgSuppliersList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Name="btExitSuppliersList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="btExitSuppliersList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="IngridientsList" Header="Информация об ингридиентах" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchIngridientsList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgIngridientsList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Name="btExitIngridientsList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="btExitIngridientsList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BeerList" Header="Информация о пиве" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchBeerList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBeerList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Name="btExitBeerList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="btExitBeerList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="ChequeList" Header="Информация о чеках" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchChequeList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgChequeList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Name="btExitChequeList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="btExitChequeList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="UserList" Header="Информация о пользователе" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="tbSearchUserList" Grid.Row="0" Grid.Column="3" FontSize="20pt"/>
+                    <DataGrid x:Name="dgUserList" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Button Name="btExitUserList" Content="Exit" FontSize="30pt" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="btExitUserList_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Breweries" Header="Пивоварни" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteBrewery" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteBrewery_Click"/>
+                    <Button Name="btLogicalRestoreBrewery" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreBrewery_Click"/>
+                    <TextBox Name="tbSearchBrewery" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBrewery" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteBrewery" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteBrewery_Click"/>
+                    <Button Name="btExitBrewery" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitBrewery_Click"/>
+                    <Button Name="btCommitBrewery" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitBrewery_Click"/>
+                    <Button Name="btExportToExcelBrewery" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelBrewery_Click"/>
+                    <Button Name="btExportToWordBrewery" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordBrewery_Click"/>
+                    <Button Name="btCreateBackupBrewery" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Admins" Header="Админы" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteAdmin" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteAdmin_Click"/>
+                    <Button Name="btLogicalRestoreAdmin" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreAdmin_Click"/>
+                    <TextBox Name="tbSearchAdmin" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgAdmin" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteAdmin" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteAdmin_Click"/>
+                    <Button Name="btExitAdmin" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitAdmin_Click"/>
+                    <Button Name="btCommitAdmin" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitAdmin_Click"/>
+                    <Button Name="btExportToExcelAdmin" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelAdmin_Click"/>
+                    <Button Name="btExportToWordAdmin" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordAdmin_Click"/>
+                    <Button Name="btCreateBackupAdmin" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Suppliers" Header="Поставщики" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteSupplier" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteSupplier_Click"/>
+                    <Button Name="btLogicalRestoreSupplier" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreSupplier_Click"/>
+                    <TextBox Name="tbSearchSupplier" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgSupplier" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteSupplier" Content="Delete" Grid.Column="3" FontSize="30pt" Grid.Row="2" Click="btDeleteSupplier_Click"/>
+                    <Button Name="btExitSupplier" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitSupplier_Click"/>
+                    <Button Name="btCommitSupplier" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitSupplier_Click"/>
+                    <Button Name="btExportToExcelSupplier" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelSupplier_Click"/>
+                    <Button Name="btExportToWordSupplier" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordSupplier_Click"/>
+                    <Button Name="btCreateBackupSupplier" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="IngridientsTypes" Header="Типы ингридиентов" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteIngridientsType" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteIngridientsType_Click"/>
+                    <Button Name="btLogicalRestoreIngridientsType" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreIngridientsType_Click"/>
+                    <TextBox Name="tbSearchIngridientsType" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgIngridientsType" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteIngridientsType" Content="Delete" Grid.Column="3" FontSize="30pt" Grid.Row="2" Click="btDeleteIngridientsType_Click"/>
+                    <Button Name="btExitIngridientsType" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Height="96" VerticalAlignment="Bottom" Click="btExitIngridientsType_Click"/>
+                    <Button Name="btCommitIngridientsType" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitIngridientsType_Click"/>
+                    <Button Name="btExportToExcelIngridientsType" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelIngridientsType_Click"/>
+                    <Button Name="btExportToWordIngridientsType" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordIngridientsType_Click"/>
+                    <Button Name="btCreateBackupIngridientsType" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Ingridients" Header="Ингридиенты" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteIngridients" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteIngridients_Click"/>
+                    <Button Name="btLogicalRestoreIngridients" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreIngridients_Click"/>
+                    <TextBox Name="tbSearchIngridients" Grid.Row="0" Grid.Column="5" FontSize="20pt"/>
+                    <DataGrid x:Name="dgIngridients" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteIngridients" Content="Delete" Grid.Column="3" FontSize="30pt" Grid.Row="2" Click="btDeleteIngridients_Click"/>
+                    <Button Name="btExitIngridients" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitIngridients_Click"/>
+                    <Button Name="btCommitIngridients" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitIngridients_Click"/>
+                    <Button Name="btExportToExcelIngridients" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelIngridients_Click"/>
+                    <Button Name="btExportToWordIngridients" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordIngridients_Click"/>
+                    <Button Name="btCreateBackupIngridients" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BeerTypes" Header="Типы пива" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteBeerType" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteBeerType_Click"/>
+                    <Button Name="btLogicalRestoreBeerType" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreBeerType_Click"/>
+                    <TextBox Name="tbSearchBeerType" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBeerType" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteBeerType" Content="Delete" Grid.Column="3" FontSize="30pt" Grid.Row="2" Click="btDeleteBeerType_Click"/>
+                    <Button Name="btExitBeerType" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitBeerType_Click"/>
+                    <Button Name="btCommitBeerType" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitBeerType_Click"/>
+                    <Button Name="btExportToExcelBeerType" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelBeerType_Click"/>
+                    <Button Name="btExportToWordBeerType" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordBeerType_Click"/>
+                    <Button Name="btCreateBackupBeerType" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Beer" Header="Пиво" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteBeer" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteBeer_Click"/>
+                    <Button Name="btLogicalRestoreBeer" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreBeer_Click"/>
+                    <TextBox Name="tbSearchBeer" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBeer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteBeer" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteBeer_Click"/>
+                    <Button Name="btExitBeer" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitBeer_Click"/>
+                    <Button Name="btCommitBeer" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitBeer_Click"/>
+                    <Button Name="btExportToExcelBeer" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelBeer_Click"/>
+                    <Button Name="btExportToWordBeer" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordBeer_Click"/>
+                    <Button Name="btCreateBackupBeer" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Subscriptions" Header="Подписки" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteSubscription" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteSubscription_Click"/>
+                    <Button Name="btLogicalRestoreSubscription" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreSubscription_Click"/>
+                    <TextBox Name="tbSearchSubscription" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgSubscription" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteSubscription" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteSubscription_Click"/>
+                    <Button Name="btExitSubscription" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitSubscription_Click"/>
+                    <Button Name="btCommitSubscription" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitSubscription_Click"/>
+                    <Button Name="btExportToExcelSubscription" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelSubscription_Click"/>
+                    <Button Name="btExportToWordSubscription" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordSubscription_Click"/>
+                    <Button Name="btCreateBackupSubscription" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="User" Header="Пользователь" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteUser" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteUser_Click"/>
+                    <Button Name="btLogicalRestoreUser" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreUser_Click"/>
+                    <TextBox Name="tbSearchUser" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgUser" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteUser" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteUser_Click"/>
+                    <Button Name="btExitUser" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitUser_Click"/>
+                    <Button Name="btCommitUser" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitUser_Click"/>
+                    <Button Name="btExportToExcelUser" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelUser_Click"/>
+                    <Button Name="btExportToWordUser" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordUser_Click"/>
+                    <Button Name="btCreateBackupUser" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BeerIngridients" Header="Ингридиенты-Пиво" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteIngridientsBeer" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteIngridientsBeer_Click"/>
+                    <Button Name="btLogicalRestoreIngridientsBeer" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreIngridientsBeer_Click"/>
+                    <TextBox Name="tbSearchIngridientsBeer" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgIngridientsBeer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteIngridientsBeer" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteIngridientsBeer_Click"/>
+                    <Button Name="btExitIngridientsBeer" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitIngridientsBeer_Click"/>
+                    <Button Name="btCommitIngridientsBeer" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitIngridientsBeer_Click"/>
+                    <Button Name="btExportToExcelIngridientsBeer" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelIngridientsBeer_Click"/>
+                    <Button Name="btExportToWordIngridientsBeer" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordIngridientsBeer_Click"/>
+                    <Button Name="btCreateBackupIngridientsBeer" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="Cheque" Header="Чек" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteCheque" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteCheque_Click"/>
+                    <Button Name="btLogicalRestoreCheque" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreCheque_Click"/>
+                    <TextBox Name="tbSearchCheque" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgCheque" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <WpfPlot x:Name="PlotGraph" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2"/>
+                    <Button Name="btDeleteCheque" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteCheque_Click"/>
+                    <Button Name="btExitCheque" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitCheque_Click"/>
+                    <Button Name="btCommitCheque" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitCheque_Click"/>
+                    <Button Name="btExportToExcelCheque" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelCheque_Click"/>
+                    <Button Name="btExportToWordCheque" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordCheque_Click"/>
+                    <Button Name="btCreateBackupCheque" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                    <Button Name="btDoGraph" Content="Do Graph" FontSize="30pt" Grid.Column="3" Grid.Row="0" Click="DoGraph"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BeerCheque" Header="Пиво-чек" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteBeer_Cheque" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteBeer_Cheque_Click"/>
+                    <Button Name="btLogicalRestoreBeer_Cheque" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreBeer_Cheque_Click"/>
+                    <TextBox Name="tbSearchBeer_Cheque" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBeer_Cheque" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteBeer_Cheque" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteBeer_Cheque_Click"/>
+                    <Button Name="btExitBeer_Cheque" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitBeer_Cheque_Click"/>
+                    <Button Name="btCommitBeer_Cheque" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitBeer_Cheque_Click"/>
+                    <Button Name="btExportToExcelBeer_Cheque" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelBeer_Cheque_Click"/>
+                    <Button Name="btExportToWordBeer_Cheque" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordBeer_Cheque_Click"/>
+                    <Button Name="btCreateBackupBeer_Cheque" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BreweryIngridients" Header="Пивоварня-Ингридиенты" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteBrewery_Ingridients" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteBrewery_Ingridients_Click"/>
+                    <Button Name="btLogicalRestoreBrewery_Ingridients" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreBrewery_Ingridients_Click"/>
+                    <TextBox Name="tbSearchBrewery_Ingridients" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBrewery_Ingridients" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteBrewery_Ingridients" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteBrewery_Ingridients_Click"/>
+                    <Button Name="btExitBrewery_Ingridients" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitBrewery_Ingridients_Click"/>
+                    <Button Name="btCommitBrewery_Ingridients" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitBrewery_Ingridients_Click"/>
+                    <Button Name="btExportToExcelBrewery_Ingridients" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelBrewery_Ingridients_Click"/>
+                    <Button Name="btExportToWordBrewery_Ingridients" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordBrewery_Ingridients_Click"/>
+                    <Button Name="btCreateBackupBrewery_Ingridients" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Name="BreweryBeer"  Header="Пивоварня-Пиво" Loaded="TabItem_Loaded">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="850"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btLogicalDeleteBrewery_Beer" Grid.Column="0" Grid.Row="2" FontSize="30pt" Content="Logical Delete" Click="btLogicalDeleteBrewery_Beer_Click"/>
+                    <Button Name="btLogicalRestoreBrewery_Beer" Grid.Column="1" Grid.Row="2" FontSize="30pt" Content="Logical Restore" Click="btLogicalRestoreBrewery_Beer_Click"/>
+                    <TextBox Name="tbSearchBrewery_Beer" Grid.Row="0" Grid.Column="4" FontSize="20pt"/>
+                    <DataGrid x:Name="dgBrewery_Beer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5"/>
+                    <Button Name="btDeleteBrewery_Beer" Content="Delete" FontSize="30pt" Grid.Column="3" Grid.Row="2" Click="btDeleteBrewery_Beer_Click"/>
+                    <Button Name="btExitBrewery_Beer" Content="Exit" FontSize="30pt" Grid.Column="4" Grid.Row="2" Click="btExitBrewery_Beer_Click"/>
+                    <Button Name="btCommitBrewery_Beer" Content="Commit" FontSize="30pt" Grid.Column="2" Grid.Row="2" Click="btCommitBrewery_Beer_Click"/>
+                    <Button Name="btExportToExcelBrewery_Beer" Content="Export To Excel" FontSize="30pt" Grid.Column="0" Grid.Row="0" Click="btExportToExcelBrewery_Beer_Click"/>
+                    <Button Name="btExportToWordBrewery_Beer" Content="Export To Word" FontSize="30pt" Grid.Column="1" Grid.Row="0" Click="btExportToWordBrewery_Beer_Click"/>
+                    <Button Name="btCreateBackupBrewery_Beer" Content="Backup" FontSize="30pt" Grid.Column="4" Grid.Row="0" Click="btCreateBackup_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
